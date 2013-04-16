@@ -10,6 +10,7 @@ setup(
     entry_points={
         'zc.buildout': [
             'mongodb = mongodb:Recipe',
+            'nginx = nginx:Recipe',
             ]
         },
     )
