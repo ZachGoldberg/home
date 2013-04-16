@@ -46,6 +46,12 @@ run_shell() {
 	./bin/django shell
 }
 
+run_wsgi() {
+        sock=uwsgi.sock
+        wsgi=djangogo.wsgi
+        uwsgi --plugins=python --autoload --mount /=bin/$wsgi -t 25 -b 16656 --die-on-term -M -R 1000 --reload-on-rss 100 -p 15 -C -A 100 -m --enable-threads -s build/var/run/$sock  -l 500 --cache 100 --cache-blocksize 2097152 2> >(grep -v "health_check")
+
+}
 run_mongo() {
         # Ensure mongo's keys have the right permissions
         chmod 600 conf/mongo.key
