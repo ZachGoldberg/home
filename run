@@ -34,9 +34,18 @@ check_root() {
 	[ "$(id -u)" == 0 ]
 }
 
+run_nginx() {
+	./bin/nginx-ctl start
+}
+
+run_haproxy() {
+	sudo haproxy -f conf/haproxy.conf -p build/haproxy.pid
+}
+
 run_shell() {
 	./bin/django shell
 }
+
 run_mongo() {
         # Ensure mongo's keys have the right permissions
         chmod 600 conf/mongo.key
