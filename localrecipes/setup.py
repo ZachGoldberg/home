@@ -5,8 +5,8 @@ setup(
     version='1.0',
     description='Local Recipes',
     author='Zach Goldberg',
-    author_email='zach@wifast.com',
-    url='wifast.com',
+    author_email='zach@zachgoldberg.com',
+    url='zachgoldberg.com',
     entry_points={
         'zc.buildout': [
             'mongodb = mongodb:Recipe',

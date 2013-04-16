@@ -1,15 +1,15 @@
-from wifast.settings import *
+import os
 
-SITE_NAME = 'links.wifast.com'
+SITE_NAME = 'go.zachgoldberg.com'
 
 SITE_BASE_URL = 'http://%s/' % SITE_NAME
 
 REQUIRE_LOGIN = True
 REQUIRE_VIEW_LOGIN = True
 
-ROOT_URLCONF = 'wifast.links.urls'
+ROOT_URLCONF = 'home.go.urls'
 
-APP_NAME = 'wifast.links'
+APP_NAME = 'home.go'
 
 SITE_ROOT = os.path.dirname(os.path.realpath(__file__))
 SOURCE_ROOT = os.path.dirname(os.path.dirname(SITE_ROOT))
@@ -26,12 +26,25 @@ INSTALLED_APPS = [
     'djangotoolbox',
     APP_NAME,
 ]
+MIDDLEWARE_CLASSES = [
+    'django.middleware.common.CommonMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.contrib.messages.middleware.MessageMiddleware',
+    'minidetector.Middleware',
+    # Renable this when doing speed optimizations
+    'wifast.portal.utils.profiler.ProfileMiddleware',
+]
 
-MIDDLEWARE_CLASSES = BASE_MIDDLEWARE_CLASSES
 
 TEMPLATE_DIRS = (
     os.path.join(SITE_ROOT, 'templates'),
 )
+
+# Make this unique, and don't share it with anybody.
+SECRET_KEY = 'rasdhasd%^&*asdawsje12 asdhavdbn!_)(*&'
+
 
 
 if os.getenv("DJANGO_TOOLBAR"):
