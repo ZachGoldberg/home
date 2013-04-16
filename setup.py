@@ -12,6 +12,7 @@ setup(name='zghome',
           'home': 'home/',
       },
       install_requires=[
+          'django==1.3',
           'django_debug_toolbar',
           'django_debug_toolbar_mongo',
           'django-mongodb-engine',

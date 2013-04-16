@@ -35,7 +35,7 @@ ADMINS = (
 
 MANAGERS = ADMINS
 
-LOCAL_MONGO_DATABASES = {
+DATABASES = {
     'default': {
         'ENGINE': 'django_mongodb_engine',
         'NAME': 'zghome',
