@@ -1,4 +1,9 @@
 import os
+from home.settings import *
+
+DEBUG = True
+
+STATIC_URL = '/static/'
 
 SITE_NAME = 'go.zachgoldberg.com'
 
@@ -32,9 +37,6 @@ MIDDLEWARE_CLASSES = [
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    'minidetector.Middleware',
-    # Renable this when doing speed optimizations
-    'wifast.portal.utils.profiler.ProfileMiddleware',
 ]
 
 

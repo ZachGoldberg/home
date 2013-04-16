@@ -38,9 +38,9 @@ MANAGERS = ADMINS
 LOCAL_MONGO_DATABASES = {
     'default': {
         'ENGINE': 'django_mongodb_engine',
-        'NAME': 'wifastportal',
-        'USER': 'wifast',
-        'PASSWORD': 'wifast2458',
+        'NAME': 'zghome',
+        'USER': 'zach',
+        'PASSWORD': 'zg123',
         'HOST': 'localhost',
         'PORT': 27017,
         # don't use eventual consistency locally
@@ -145,14 +145,10 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.media',
     'django.core.context_processors.static',
     'django.contrib.messages.context_processors.messages',
-    'wifast.portal.utils.context_processors.product_info',
-    'wifast.portal.utils.context_processors.prod_environment',
-    'wifast.portal.utils.context_processors.csrf_token',
-    # requested by Facebook integration
     'django.core.context_processors.request',
 )
 
-ROOT_URLCONF = 'wifast.portal.urls'
+ROOT_URLCONF = 'home.go.urls'
 
 TEMPLATE_DIRS = (
     # Don't forget to use absolute paths, not relative paths.
