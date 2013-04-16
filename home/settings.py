@@ -1,0 +1,13 @@
+import os
+import socket
+
+IS_PROD = True
+
+## Django's Debug Toolbar
+DEBUG_TOOLBAR_MONGO_STACKTRACES = not IS_PROD
+DEBUG_TOOLBAR_CONFIG = {
+    'INTERCEPT_REDIRECTS': False,
+    'SHOW_TOOLBAR_CALLBACK': lambda x: True,
+    'ENABLE_STACKTRACES': DEBUG_TOOLBAR_MONGO_STACKTRACES,
+}
+
