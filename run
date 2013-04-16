@@ -34,6 +34,10 @@ check_root() {
 	[ "$(id -u)" == 0 ]
 }
 
+run_syncdb() {
+	./bin/djangogo syncdb
+}
+
 run_nginx() {
 	./bin/nginx-ctl start
 }
@@ -58,7 +62,16 @@ run_mongo() {
         ./bin/start_mongodb_mongod.sh
 }
 
+run_mongo_setup() {
+        ./bin/mongo <<-EOF
+                use admin
+                db.addUser("root", "qwe123qwe123qwe123")
+                db.auth("root", "qwe123qwe123qwe123")
+                use zghome
+                db.addUser("zach", "zg123")
+	EOF
 
+}
 run_completion() {
 	# This needs to be run through `eval` in order to work in your shell
 	cat <<-EOF
