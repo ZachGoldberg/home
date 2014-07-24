@@ -17,9 +17,9 @@ http {
 
     sendfile        on;
     gzip  on;
-    gzip_comp_level 2;
+    gzip_comp_level 9;
     gzip_proxied    any;
-    gzip_types      text/plain text/css application/x-javascript text/xml application/xml application/xml+rss text/javascript;
+    gzip_types      text/plain text/css application/x-javascript text/xml application/xml application/xml+rss text/javascript application/json;
 
     server {
         listen       ${port_portal};
@@ -44,6 +44,31 @@ http {
         location = /50x.html {
             root   html;
         }
+    }
+
+    upstream car_server {
+       server unix://${car_uwsgi_sock_path} fail_timeout=0;
+    }
+
+    server {
+        listen       ${port_cars};
+        server_name  ${server_name};
+        client_max_body_size 10M;
+        gzip  on;
+        gzip_comp_level 9;
+        gzip_proxied    any;
+        gzip_types      text/plain text/css application/x-javascript text/xml application/xml application/xml+rss text/javascript application/json;
+
+
+        location / {
+           root   ${cars_dir};
+           index  cars.html;
+        }
+
+        location /backend/ {
+          proxy_pass http://car_server;
+        }
+
     }
 
 }

@@ -1,5 +1,4 @@
 from setuptools import setup, find_packages
-import django_mongodb_engine as distmeta
 
 CLASSIFIERS = [
     'Intended Audience :: Developers',
@@ -16,10 +15,6 @@ CLASSIFIERS = [
 
 setup(
     name='django-mongodb-engine',
-    version='.'.join(map(str, distmeta.__version__)),
-    author=distmeta.__author__,
-    author_email=distmeta.__contact__,
-    url=distmeta.__homepage__,
     license='2-clause BSD',
     description= "MongoDB backend for Django",
     install_requires=['pymongo', 'djangotoolbox'],
