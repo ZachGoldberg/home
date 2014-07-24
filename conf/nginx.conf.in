@@ -17,7 +17,7 @@ http {
 
     sendfile        on;
     gzip  on;
-    gzip_comp_level 9;
+    gzip_comp_level 2;
     gzip_proxied    any;
     gzip_types      text/plain text/css application/x-javascript text/xml application/xml application/xml+rss text/javascript application/json;
 
@@ -55,7 +55,7 @@ http {
         server_name  ${server_name};
         client_max_body_size 10M;
         gzip  on;
-        gzip_comp_level 9;
+        gzip_comp_level 2;
         gzip_proxied    any;
         gzip_types      text/plain text/css application/x-javascript text/xml application/xml application/xml+rss text/javascript application/json;
 
